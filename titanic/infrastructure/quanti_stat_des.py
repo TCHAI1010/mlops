@@ -8,7 +8,7 @@ def plot_histogram (data: pd.DataFrame):
 
     Parameters
     ----------
-    df : pd.DataFrame
+    data : pd.DataFrame
         Input data to generate plots.
 
     """
