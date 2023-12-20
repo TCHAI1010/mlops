@@ -74,15 +74,23 @@ def removeDuplicates(df: pd.DataFrame) -> pd.DataFrame:
 
 
 
-def transform (df : pd.DataFrame) -> pd.DataFrame : 
+def transform (df: pd.DataFrame) -> pd.DataFrame: 
+    """
+    This function remove the duplicates rows of the DataFrame.
 
-df1 = goodColumnsFormat(df)
-df2 = renameColumns(df1)
-df3 = replacingNA(df2)
-df4 = removeDuplicates(df3)
+    Parameters :
+    - dataframe : dataframe that need to be transformed.
+
+    Return :
+    - A new DataFrame with the transformations.
+    """
+    df_goodFormat = goodColumnsFormat(df)
+    df_renamedColumns = renameColumns(df_goodFormat)
+    df_removeNA = replacingNA(df_renamedColumns)
+    df_clean = removeDuplicates(df_removeNA)
 
 
-return df    
+    return df_clean    
 
 
 
