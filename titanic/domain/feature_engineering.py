@@ -3,14 +3,14 @@ import numpy as np
 import re
 
 
-def transfomm_homedest(data:pd.DataFrame)-> pd.DataFrame:
+def transfomm_homedest(data:pd.DataFrame):
     """
-    Tranform the variable 'home.dest'.
+    Tranform the variable 'homeDestination'.
 
     Parameters
     ----------
     df : pd.DataFrame
-        Input dataframe. Should have 'home.dest'.
+        Input dataframe. Should have 'homeDestination'.
 
     Returns
     -------
@@ -20,15 +20,15 @@ def transfomm_homedest(data:pd.DataFrame)-> pd.DataFrame:
     data['home'] = 'NA'
     data['dest'] = 'NA'
 
-    # Iterer à travers les éléments de la colonne 'home.dest'
-    for i in range(len(data['home.dest'])):
-        if pd.notna(data['home.dest'][i]):
-            string = re.split(r'[,/]', data['home.dest'][i])
+    for i in range(len(data['homeDestination'])):
+        if pd.notna(data['homeDestination'][i]):
+            string = re.split(r'[,/]', data['homeDestination'][i])
             if len(string) == 4:
                 data.at[i, 'home'] = ','.join([string[0], string[1]])
                 data.at[i, 'dest'] = ','.join([string[2], string[3]])
             else:
                 data.at[i, 'dest'] = ','.join(string)
+    
 
 
 

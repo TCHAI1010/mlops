@@ -14,7 +14,7 @@ def goodColumnsFormat(df: pd.DataFrame) -> pd.DataFrame:
     - A new DataFrame with the renamed colums.
     """
     df['pclass'] = pd.to_numeric(df['pclass'])
-    df['survival'] = pd.to_numeric(df['survival'])
+    df['survived'] = pd.to_numeric(df['survived'])
     df['age'] = pd.to_numeric(df['age'])
     df['fare'] = pd.to_numeric(df['fare'])
     df['sibsp'] = pd.to_numeric(df['sibsp'])
