@@ -3,7 +3,7 @@ import numpy as np
 import re
 
 
-def transfomm_homedest(data:pd.DataFrame):
+def transfomm_homedest(data:pd.DataFrame)-> pd.DataFrame:
     """
     Tranform the variable 'homeDestination'.
 
@@ -28,6 +28,8 @@ def transfomm_homedest(data:pd.DataFrame):
                 data.at[i, 'dest'] = ','.join([string[2], string[3]])
             else:
                 data.at[i, 'dest'] = ','.join(string)
+    
+    return(data)
     
 
 
@@ -55,3 +57,21 @@ def feature_selection(data:pd.DataFrame, selected_colums:list)-> pd.DataFrame:
 
     df=data.loc[:, selected_columns]
     return(df)
+
+
+def name(data:pd.DataFrame)-> pd.DataFrame:
+    """
+    Create age and fare classes. 
+
+    Parameters
+    ----------
+    data : pd.DataFrame
+        Input dataframe.
+    selected_colums : list
+        Input list of selected columns.
+
+    Returns
+    -------
+    pd.DataFrame
+        Input dataframe with only selected features.
+    """   
