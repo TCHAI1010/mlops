@@ -31,6 +31,3 @@ def categorical_histogram(df):
             plt.xlabel('Modalité')
             plt.ylabel('Fréquence')
             plt.show()
-
-# Appeler la fonction pour afficher les graphiques de distribution avec Seaborn
-categorical_histogram(df)

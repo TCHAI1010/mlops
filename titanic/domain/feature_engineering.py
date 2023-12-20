@@ -61,17 +61,17 @@ def feature_selection(data:pd.DataFrame, selected_colums:list)-> pd.DataFrame:
 
 def name(data:pd.DataFrame)-> pd.DataFrame:
     """
-    Create age and fare classes. 
+    Create age and fare classes. Shoulde have 'age' and 'fare'
 
     Parameters
     ----------
     data : pd.DataFrame
         Input dataframe.
-    selected_colums : list
-        Input list of selected columns.
 
     Returns
     -------
     pd.DataFrame
-        Input dataframe with only selected features.
-    """   
+        output dataframe age and fare class.
+    """ 
+    
+
