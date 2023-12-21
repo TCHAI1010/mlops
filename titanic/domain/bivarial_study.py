@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 from scipy.stats import chi2_contingency
 
 
+# Calculer les tris croisés
+
+
 # Calculer la matrice de corrélation
 def cramers_v(confusion_matrix):
     chi2 = chi2_contingency(confusion_matrix)[0]
@@ -40,12 +43,12 @@ def print_matrix_cramer(df: pd.DataFrame):
 
     correlation_matrix = correlation_matrix_cramer_v(df)
 
-    print("Matrice de corrélation avec le V de Cramer:")
-
     # Afficher la matrice de corrélation sous forme de heatmap
     plt.figure(figsize=(10, 8))
     sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", linewidths=.5)
     plt.title('Matrice de corrélation')
+    plt.xticks(range(len(df.columns)), df.columns, rotation=90)
+    plt.yticks(range(len(df.columns)), df.columns, rotation=0)
     plt.show()
 
 
