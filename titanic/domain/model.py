@@ -39,6 +39,29 @@ def apply_LogisticRegression(x,y):
 
     print("\nClassification Report:\n", classification_report(y_test, y_pred))
 
+    kf = KFold(n_splits=5, shuffle=True, random_state=42)
+    scores = cross_val_score(reg,x,y,cv=kf)
+    print("Scores de validation croisée:", scores)
+    print("Score moyen:", np.mean(scores))
+
+    return(reg)
+
+
+def print_confusion_matrix(x,y):
+    """
+    Print the matrix confusion.
+
+    Parameters
+    ----------
+    x
+    y
+
+    """
+    x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.25,random_state=42)
+    reg=LogisticRegression()
+    reg.fit(x_train,y_train)
+
+    y_pred = reg.predict(x_test)
     cm = confusion_matrix(y_test, y_pred)
 
     plt.figure(figsize=(8, 6))
@@ -47,11 +70,4 @@ def apply_LogisticRegression(x,y):
     plt.xlabel('Valeurs Prédites')
     plt.ylabel('Valeurs Réelles')
     plt.show()
-
-    kf = KFold(n_splits=5, shuffle=True, random_state=42)
-    scores = cross_val_score(reg,x,y,cv=kf)
-    print("Scores de validation croisée:", scores)
-    print("Score moyen:", np.mean(scores))
-
-    return(reg)
 
